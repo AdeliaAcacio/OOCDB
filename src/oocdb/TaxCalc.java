@@ -14,20 +14,20 @@ package oocdb;
 public interface TaxCalc {
     
     // Paye tax: deducted from employees 
-    //Method used to take SALARY and retun the value of salary after calc deduction of PAYE tax
+    //Method used to take SALARY and retun the value of salary after calculation to deduct value of PAYE tax
     double calculatePayeTax(double salary);
-    //The Universal Social Charge (USC)
-    // Method used to take SALARY and AGE retun the value of salary after calc deduction of USC tax
+    
 
     /**
-     *
+     * The Universal Social Charge (USC)
+     * Method used to take SALARY and AGE return the value of salary after calculation to deduct value of USC tax
      * @param salary
      * @param age
-     * @return
+     * @return the value of salary after calculate deduction of USC tax
      */
     double calculateUscTax(double salary, int age);
     //The Pay Related Social Insurance (PRSI)
-    // Method used to take salary and retun the value of salary after calc deduction of PRSI tax
+    // Method used to take salary and retun the value of salary after calculation to deduct value of PRSI tax
     
     
     double calculatePrsiTax(double salary);
