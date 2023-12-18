@@ -27,7 +27,7 @@ package oocdb;
     *if Salary  <= 1872 ( PRSI tax result = salary * 0.4) 
     *if (PRSI tax result > 1873 ) else (PRSI tax result = 1873 )
  */
-    public class TaxCalculator implements TaxCalc {
+    public abstract class TaxCalculator implements TaxCalc {
 
     @Override
     // Method used to take salary and retun the value of salary after calc deduction of PAYE tax
@@ -55,7 +55,7 @@ package oocdb;
     
         // Method used to take SALARY and AGE and retun the value of salary after deduction of USC tax
     @Override
-    public double calculateUscTax(double salary,int age) {
+    public double calculateUscTax(double salary ,int age) {
             double uscTax;
 
             //If If salary is greater than or equal to 12012 AND The person age is greater than 70 years old
@@ -106,3 +106,4 @@ package oocdb;
         }
 
     }
+}
