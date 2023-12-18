@@ -5,9 +5,17 @@
 package oocdb;
 
 /**
- *
- * @author DELL 7480
+ * Main code provide from Sam Weiss/hospitalAdministration
+ * Changes made to fit the ReaderDB
+ * @author AdeliaAcacio2022203
  */
-public class ReaderDB {
+public class ReaderDB implements Database {
     
+    try {
+          
+    
+    
+} catch (Exception e) {
+    e.printStackTrace();
+}
 }
