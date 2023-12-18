@@ -48,14 +48,14 @@ package oocdb;
             if (payeTax > 7176) {
                 payeTax = 7176; // the maximum of PAYE tax deduction is 7176
             }
-
+        }
             return payeTax;
             }
 
     
         // Method used to take SALARY and AGE and retun the value of salary after deduction of USC tax
     @Override
-    public double calculateUscTax(double salary ,int age) {
+    public double calculateUscTax(double salary, int age) {
             double uscTax;
 
             //If If salary is greater than or equal to 12012 AND The person age is greater than 70 years old
@@ -79,8 +79,6 @@ package oocdb;
                 uscTax = 1353;
             }
 
-  
-
             return uscTax;
             }
 
@@ -89,7 +87,7 @@ package oocdb;
         // Method used to take salary and retun the value of salary after deduction of PRSI tax
     @Override
         public double calculatePrsiTax(double salary) {
-            double prsiTax;
+            double prsiTax = 0;
 
             // If salary is less than or equal to 40000
             if (salary <= 1872) {
@@ -98,12 +96,11 @@ package oocdb;
             } else {
                 //check if the amount of PRSI tax calculated is greater than 1873
                 // if yes, keep the amount of 1873
-                prsiTax = ((prsiTax > 1873) * 0) + 1873);
+                prsiTax = (prsiTax > 1873) ? 1873 : prsiTax;
            
              }
 
              return prsiTax;
         }
+ }
 
-    }
-}
