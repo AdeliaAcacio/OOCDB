@@ -17,6 +17,7 @@ public void modifyProfile();
 
 public class User {
     
+    //ATTRIBUTES : Fields that represents user attributes 
     private String userName;
     private final int userPassword;
     private final int userID;
@@ -26,8 +27,7 @@ public class User {
 
     private static final int currentID = 1;
     
-    //CONSTRUCTOR to buid a new User
-    
+    //CONSTRUCTOR to build new User
     public User(String userName, int userPassword, int userID, int userAge, double userSalary) {
         this.userName = userName;
         this.userPassword = userPassword;
@@ -36,13 +36,13 @@ public class User {
         this.userSalary = userSalary;
     }
 
-    
+    //METHODS: GETTER to retrieve the values of the User attributes
     public String getUserName() {
         return userName;
     }
 
     public int getUserPassword() {
-        return UserPassword;
+        return userPassword;
     }
 
     public int getUserID() {
@@ -60,7 +60,7 @@ public class User {
     public static int getCurrentID() {
         return currentID;
     }
-
+    //SETTER to set the value of the 'userName' attribute.
     public void setUsername(String userName) {
         this.userName = userName;
     }
