@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * This class retrieve user data, interact with 'Database' interface and connect
@@ -26,12 +27,14 @@ public class ReaderDB implements Database {
          
     */
 
+    public ArrayList<User> getAllData() {
+        
+    
        try {
              Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-               Statement stmt = conn.createStatement();
-        
-            ){ 
-                ResultSet results = stmt.executeQuery(String.format(
+               Statement stmt = conn.createStatement();) { 
+               
+           ResultSet results = stmt.executeQuery(String.format(
                "SELECT * FROM %s;",
                TABLE_NAME));
 
@@ -48,19 +51,19 @@ public class ReaderDB implements Database {
             System.out.println(results.getInt("userID"));
 
             // Catch block to catches exceptions that ours during executions of the program   
-       }catch (Exception e) {
+        }catch (Exception e) {
            // This line prints the informations about of sequence of methods that led to the exception
                 e.printStackTrace();
         }
     }
     
 
-         /**
-     * Method to retrieve user information from the database based on the userID.
-     *
-     * @param userID the ID of the user to retrieve.
-     * @return a User object representing the user's data, or null if an exception occurs.
-     */
+        /**
+    * Method to retrieve user information from the database based on the userID.
+    *
+    * @param userID the ID of the user to retrieve.
+    * @return a User object representing the user's data, or null if an exception occurs.
+    */
     public User getUserData(int userID) {
         try (
              Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);  
@@ -73,13 +76,13 @@ public class ReaderDB implements Database {
 
             //Getting user data to create a user object
             System.out.println(results.getString("userName"));
-            String userName = results.getString("userName");
+            String name = results.getString("userName");
             int password = results.getInt("userPassword");
             int id = results.getInt("userID");
             int age = results.getInt("userAge");
-            double salary = results.getInt("userSalary");
-            //Writing data from the set result to create a new 'User' object
-            User user = new User(username, userpassword, userid, userage, usersalary);
+            double gI = results.getInt("grossIncome");
+            //Writing data from the 'ResultSet' to create a new 'User' object
+            User user = new User(name, password, id, age, gI);
             return user;
 
             // Catch block to catches exceptions that ours during executions of the program
@@ -89,4 +92,5 @@ public class ReaderDB implements Database {
             return null;
         }
     }
+
 }
