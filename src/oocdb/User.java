@@ -22,18 +22,18 @@ public class User {
     private final int userPassword;
     private final int userID;
     private final int userAge;
-    protected double userSalary;
+    protected double grossIncome;
     
 
     private static final int currentID = 1;
     
     //CONSTRUCTOR to build new User
-    public User(String userName, int userPassword, int userID, int userAge, double userSalary) {
+    public User(String userName, int userPassword, int userID, int userAge, double grossIncome) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userID = userID;
         this.userAge = userAge;
-        this.userSalary = userSalary;
+        this.grossIncome = grossIncome;
     }
 
     //METHODS: GETTER to retrieve the values of the User attributes
@@ -53,8 +53,8 @@ public class User {
         return userAge;
     }
 
-    public double getUserSalary() {
-        return userSalary;
+    public double getGrossIncome() {
+        return grossIncome;
     }
 
     public static int getCurrentID() {
