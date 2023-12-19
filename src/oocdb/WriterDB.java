@@ -28,7 +28,7 @@ public class WriterDB {
             // Using User details to building the SQL database
             String sql = String.format("INSERT INTO " + TABLE_NAME + "user_details  ("
                     + "'%s', '%s', '%s', %d);",
-                    user.getusername(), user.getaassword(), usert.getppsNo(), patient.getuserID());
+                    user.getusername(), user.getaassword(), user.getppsNo(), user.getuserID());
            //execute sql statement
             stmt.execute(sql);
             return true;        
