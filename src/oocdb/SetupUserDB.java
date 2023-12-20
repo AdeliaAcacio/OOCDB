@@ -20,6 +20,11 @@ public class SetupUserDB {
     final static String USER = "ooc2023";
     final static String PASSWORD = "ooc2023";
     
+    /* This method is declared to throw several exceptions related to SQL, class loading, and instantiation. 
+     * It returns a boolean indicating whether the setup was successful
+     * The MySQL JDBC driver class to establish a connection to the MySQL database
+     *  and creates a Statement object for executing SQL queries
+    */
     public static boolean dbSetup() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         try(
