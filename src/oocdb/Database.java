@@ -16,15 +16,15 @@ public interface Database {
     and the variables in Uppercase means it is a Final method
     */
     
-    protected final static String DB_BASE_URL = "jdbc:mysql://localhost";  
-    protected final static String USER = "ooc2023";
-    protected final static String PASSWORD = "ooc2023";
-    protected final static String DB_NAME = "users";
-    protected final static String TABLE_NAME = "user_details";
+    String DB_BASE_URL = "jdbc:mysql://localhost";  
+    String USER = "ooc2023";
+    String PASSWORD = "ooc2023";
+    String DB_NAME = "users";
+    String TABLE_NAME = "user_details";
     
    
     
-    protected final static String DB_URL = DB_BASE_URL + "/" + DB_NAME;
+    String DB_URL = DB_BASE_URL + "/" + DB_NAME;
     
 }
     

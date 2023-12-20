@@ -35,7 +35,7 @@ package oocdb;
         double payeTax;
 
         // If grossIncome is less than or equal to 40000
-        if (salary <= 40000) {
+        if (grossIncome <= 40000) {
             //deduction of 20% of grossIncome
             payeTax = grossIncome * 0.2;
             } else {
@@ -59,20 +59,20 @@ package oocdb;
             double uscTax;
 
             //If If grossIncome is greater than or equal to 12012 AND The person age is greater than 70 years old
-            if (salary >= 12012 && age > 70) {
+            if (grossIncome >= 12012 && age > 70) {
                 //the USC tax deduction applied is 5%
-                uscTax = salary * 0.005;
+                uscTax = grossIncome * 0.005;
                 //If grossIncome is greater than or equal to 12013 AND greater than 22920
-            } else if (salary >= 12013 && salary < 22920) {
+            } else if (grossIncome >= 12013 && grossIncome < 22920) {
                 //the USC tax deduction apllied is 2%
-                uscTax = salary * 0.02;
+                uscTax = grossIncome * 0.02;
                 //If grossIncome is greater than or equal to 22921 AND greater than 70044
-            } else if (salary >= 22921 && salary < 70044) {
+            } else if (grossIncome >= 22921 && grossIncome < 70044) {
                 // the USC tax deduction applied is 4.5%
-                uscTax = salary * 0.045;
+                uscTax = grossIncome * 0.045;
                 //
             } else {
-                uscTax = salary * 0.08;//8%
+                uscTax = grossIncome * 0.08;//8%
             }
             // Check if USC tax is greater than 1353, apply maximum of 1353
             if (uscTax > 1353) {
@@ -90,9 +90,9 @@ package oocdb;
             double prsiTax = 0;
 
             // If grossIncomeis less than or equal to 40000
-            if (salary <= 1872) {
+            if (grossIncome <= 1872) {
                 //deduction of 40% of salary applied
-                prsiTax = salary * 0.4;
+                prsiTax = grossIncome * 0.4;
             } else {
                 //check if the amount of PRSI tax calculated is greater than 1873
                 // if yes, iT keeps the amount of 1873
