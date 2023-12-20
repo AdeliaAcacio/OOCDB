@@ -72,7 +72,4 @@ public class User {
         return this.userName.equals(userUsername) && this.userPassword.equals(userPassword);
     }
 
- 
-  
-    
 }

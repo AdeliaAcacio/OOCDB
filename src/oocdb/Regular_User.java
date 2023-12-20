@@ -5,15 +5,15 @@
 package oocdb;
 
 /**
- *NAO MEXI
+ *
  * @author Stefani Nunes
  */
 public class Regular_User extends User implements UserInterface{
-     String name;
-     String surname;
-
-    public Regular_User(String username, String password) {
-        super(username, password);
+     
+   
+//CONSTRUCTOR
+    public Regular_User(String userName, String userPassword, int userID, int userAge, double grossIncome) {
+        super(userName, userPassword, userID, userAge, grossIncome);
     }
     
    @Override
@@ -24,8 +24,8 @@ public class Regular_User extends User implements UserInterface{
     
     @Override
     // if the used username and password matches the users choise
-    public boolean login(String userUsername, String userpassword){
-        return this.username.equals(userUsername) && this.password.equals(userpassword);
+    public boolean login(String userUserName, String userPassword){
+        return getUserName().equals(userUserName) && getUserPassword().equals(userPassword);
     }
    
 }
