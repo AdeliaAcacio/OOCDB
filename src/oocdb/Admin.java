@@ -10,12 +10,21 @@ package oocdb;
  */
 public class Admin  implements UserInterface{
     
+<<<<<<< Updated upstream
      private String adminUser = "CCT";
      private String adminPassword = "Dublin";
    
     //CONSTRUCTOR 
 
     public Admin(String username, String password, int currentID) {
+=======
+   
+   
+    //CONSTRUCTOR 
+    
+    public Admin(String userName, String userPassword, int userID, int userAge, double grossIncome) {
+        super(userName, userPassword, userID, userAge, grossIncome);
+>>>>>>> Stashed changes
     }
 
     public void setAdminUser(String adminUser) {
