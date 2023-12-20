@@ -19,7 +19,7 @@ public class User {
     
     //ATTRIBUTES : Fields that represents user attributes 
     private String userName;
-    private final int userPassword;
+    private final String userPassword;
     private final int userID;
     private final int userAge;
     protected double grossIncome;
@@ -28,7 +28,7 @@ public class User {
     private static final int currentID = 1;
     
     //CONSTRUCTOR to build new User
-    public User(String userName, int userPassword, int userID, int userAge, double grossIncome) {
+    public User(String userName, String userPassword, int userID, int userAge, double grossIncome) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userID = userID;
@@ -41,7 +41,7 @@ public class User {
         return userName;
     }
 
-    public int getUserPassword() {
+    public String getUserPassword() {
         return userPassword;
     }
 
@@ -69,7 +69,7 @@ public class User {
     
     // if the used username and password matches the users choise
     public boolean login(String userUsername, String userPassword){
-        return this.username.equals(userUsername) && this.userPassword.equals(userPassword);
+        return this.userName.equals(userUsername) && this.userPassword.equals(userPassword);
     }
 
  
