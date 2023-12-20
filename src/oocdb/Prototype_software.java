@@ -10,6 +10,8 @@ import java.util.ArrayList;
 /**
  *
  * @author AdeliaAcacio
+ * @author Stefani Nunes
+ * GitHub link( https://github.com/AdeliaAcacio/OOCDB )
  */
 public class Prototype_software {
     

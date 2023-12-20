@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author AdeliaAcacio2022203
  */
 public class SetupUserDB {
-     final static String DB_BASE_URL = "jdbc:mysql://localhost";
+    final static String DB_BASE_URL = "jdbc:mysql://localhost";
     final static String USER = "ooc2023";
     final static String PASSWORD = "ooc2023";
     
