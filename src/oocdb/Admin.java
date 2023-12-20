@@ -9,16 +9,10 @@ package oocdb;
  * @author Stefani Nunes
  */
 public class Admin extends User implements UserInterface{
-
-    String name;
-    String surname;
    
     //CONSTRUCTOR
-
-    public Admin(String name, String surname, String username, String password) {
-        super(username, password);
-        this.name = name;
-        this.surname = surname;
+    public Admin(String userName, String userPassword, int userID, int userAge, double grossIncome) {
+        super(userName, userPassword, userID, userAge, grossIncome);
     }
 
     @Override
@@ -28,8 +22,8 @@ public class Admin extends User implements UserInterface{
     }
     @Override
     // if the used username and password matches the admin choise
-    public boolean login(String userUsername, String userpassword){
-        return this.username.equals(userUsername) && this.password.equals(userpassword);
+    public boolean login(String userUserName, String userPassword) {
+        return getUserName().equals(userUserName) && getUserPassword().equals(userPassword);
     }
     
   //METHODS DECLARATIONS  
