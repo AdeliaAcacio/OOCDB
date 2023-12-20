@@ -19,7 +19,7 @@ public class Menu {
     WriterDB writerDB = new WriterDB();
     User loggedInUser = null;
     TaxCalc taxCalculator = new TaxCalculator() {}; // Instantiate TaxCalculator
-
+       
     public void startMenu() throws SQLException {
         while (true) {
             System.out.println("Welcome to the Tax Calculator");
@@ -28,7 +28,7 @@ public class Menu {
             System.out.println("2. Register");
             System.out.println("3. Exit");
             System.out.print("Please enter the number of your choice: ");
-
+            
             int choice = scanner.nextInt();
             scanner.nextLine(); 
 
@@ -43,11 +43,12 @@ public class Menu {
 
                     switch (userTypeChoice) {
                         case 1:
-                            loggedInUser = loginAdmin(scanner);
+                Admin loginAdmin = loginAdmin(scanner);
                             if (loggedInUser != null) {
-                                adminMenu(scanner, (Admin) loggedInUser, readerDB);
+                                adminMenu(scanner, (Admin) loginAdmin, readerDB);
                             }
                             break;
+
                         case 2:
                             loggedInUser = loginUser(scanner);
                             if (loggedInUser != null) {
