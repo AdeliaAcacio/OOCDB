@@ -4,7 +4,6 @@
  */
 package oocdb;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Prototype_software {
     
-     public static void main(String[] args)throws SQLException, ClassNotFoundException, InstantiationException,IllegalAccessExceptio {
+     public static void main(String[] args) {
         // TODO code application logic here  
         
         
@@ -30,8 +29,8 @@ public class Prototype_software {
         
         
          // Retrieve grossIncome and age from the database
-        double grossIncome = retrieve.GrossIncomeFromDatabase();
-        int age = retrieveAgeFromDatabase();
+         double grossIncome = retrieveGrossIncomeFromDatabase();
+         int age = retrieveAgeFromDatabase();
 
         // Create an instance of the TaxCalculator
         TaxCalc taxCalculator = new TaxCalculator() {};
@@ -47,16 +46,16 @@ public class Prototype_software {
         System.out.println("PRSI Tax: " + prsiTax);
     }
 
-    // CHECK THIS CODIGO
+    
      // retrieving grossIncome and age from the database
-    private static double retrieve.GrossIncomeFromDatabase() {
+    private static double retrieveGrossIncomeFromDatabase() {
         // 
-        return grossIncome;
+        return 0;
     }
 
     private static int retrieveAgeFromDatabase() {
         // 
-        return userAge;
+        return 0;
     }
 
     

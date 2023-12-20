@@ -54,7 +54,7 @@ public class User {
     }
 
     public double getGrossIncome() {
-        return grossIncome;
+       return grossIncome;
     }
 
     public static int getCurrentID() {

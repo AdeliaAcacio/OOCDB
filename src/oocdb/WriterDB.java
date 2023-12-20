@@ -4,13 +4,12 @@
  */
 package oocdb;
 
-import static hospitaladministration.Database.DB_BASE_URL;
-import static hospitaladministration.Database.PASSWORD;
-import static hospitaladministration.Database.USER;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  * Code designed for writing user details to a MySQL database
@@ -19,34 +18,35 @@ import java.sql.Statement;
  * Changes made to fit the WriterDB
  * @author AdeliaAcacio2022203
  */
-public class WriterDB {
+public class WriterDB implements Database {
     
         //adding a single user to the database
        //throws a SQLException, if occur a problem withe the database connecction or at the operation of write a new user
-    public bollean addUser (User user) throws SQLException {
-        try{
+    public boolean addUser (User user) throws SQLException {
+        try(
             // Using try-with-resources to automatically close resources 'Connection' and 'Statement'
-             Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            Statement stmt = conn.createStatement();  
-        ){
+             Connection conn = DriverManager.getConnection(DB_BASE_URL, USER, PASSWORD);
+            Statement stmt = conn.createStatement()){  
+        
             // Using User details to building the SQL database
-            String sql = String.format("INSERT INTO " + TABLE_NAME + "user_details  ("
-                    + "'%s', '%s', '%s', %d);",
-                    user.getusername(), user.getaassword(), user.getppsNo(), user.getuserID());
+            String sql = String.format("INSERT INTO %s (userName, userPassword, userID, userAge) VALUES " +
+                    "('%s', '%s', %d, %d);", TABLE_NAME, user.getUserName(), user.getUserPassword(),
+                    user.getUserID(), user.getUserAge()); 
            //execute sql statement
             stmt.execute(sql);
             return true;        
                          
-                    
-                    
+                         
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+    }
+    
         // Adding a array list of users to the database (currently returns true, needs implementation)
        public boolean addAllUsers(List<User> userList) {
-          // adding all users in the database liste 
-           return true;
+          // adding all users in the database list
+           return false;
        } 
     }
-}
+

@@ -4,11 +4,6 @@
  */
 package oocdb;
 
-import static hospitaladministration.Database.DB_URL;
-import static hospitaladministration.Database.PASSWORD;
-import static hospitaladministration.Database.TABLE_NAME;
-import static hospitaladministration.Database.USER;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -32,34 +27,35 @@ public class ReaderDB implements Database {
          
     */
 
+    private ArrayList<User> users = new ArrayList<>();
+    
     public ArrayList<User> getAllData() {
         
     
-       try {
+       try (
              Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-               Statement stmt = conn.createStatement();) { 
+               Statement stmt = conn.createStatement()) { 
                
            ResultSet results = stmt.executeQuery(String.format(
                "SELECT * FROM %s;",
                TABLE_NAME));
 
-            // Selects row 1
-            System.out.println(results.next());
-            // Selects row 2
-            System.out.println(results.next());
-            // Selects row 3
-            System.out.println(results.next());
-            // Selects row 4
-            System.out.println(results.next());
-            System.out.println(results.next());
-            System.out.println(results.getString("username"));
-            System.out.println(results.getInt("userID"));
+            while (results.next()) {
+                String userName = results.getString("userName");
+                String password = results.getString("userPassword");
+                int userID = results.getInt("userID");
+                int userAge = results.getInt("userAge");
+                double grossIncome = results.getDouble("grossIncome");  
+                User user = new User(userName, password, userID, userAge, grossIncome);
+                users.add(user);
+            }
 
             // Catch block to catches exceptions that ours during executions of the program   
         }catch (Exception e) {
            // This line prints the informations about of sequence of methods that led to the exception
                 e.printStackTrace();
         }
+        return users;
     }
     
 
@@ -77,25 +73,24 @@ public class ReaderDB implements Database {
             ResultSet results = stmt.executeQuery(String.format(
                     "SELECT * FROM %s WHERE id=%d;",
                  TABLE_NAME, userID));
-            results.next();
-
+            
+           
             //Getting user data to create a user object
-            System.out.println(results.getString("userName"));
-            String name = results.getString("userName");
-            int password = results.getInt("userPassword");
-            int id = results.getInt("userID");
-            int age = results.getInt("userAge");
-            double gI = results.getInt("grossIncome");
-            //Writing data from the 'ResultSet' to create a new 'User' object
-            User user = new User(name, password, id, age, gI);
-            return user;
-
+            if (results.next()) {
+                String userName = results.getString("userName");
+                String password = results.getString("userPassword");
+                int retrievedUserID = results.getInt("userID");
+                int userAge = results.getInt("userAge");
+                double grossIncome = results.getInt("grossIncome");
+                 //Writing data from the 'ResultSet' to create a new 'User' object
+           
+                return new User(userName, password, retrievedUserID, userAge, grossIncome);
+            }
             // Catch block to catches exceptions that ours during executions of the program
         } catch (Exception e) {
             // This line prints the informations about of sequence of methods that led to the exception
             e.printStackTrace();
-            return null;
         }
+        return null;
     }
-
 }

@@ -89,7 +89,7 @@ package oocdb;
         public double calculatePrsiTax(double grossIncome) {
             double prsiTax = 0;
 
-            // If grossIncomeis less than or equal to 40000
+            // If grossIncome is less than or equal to 40000
             if (grossIncome <= 1872) {
                 //deduction of 40% of salary applied
                 prsiTax = grossIncome * 0.4;

@@ -17,8 +17,8 @@ public interface Database {
     */
     
     String DB_BASE_URL = "jdbc:mysql://localhost";  
-    String USER = "ooc2023";
-    String PASSWORD = "ooc2023";
+    String USER = "CCT";
+    String PASSWORD = "Dublin";
     String DB_NAME = "users";
     String TABLE_NAME = "user_details";
     
