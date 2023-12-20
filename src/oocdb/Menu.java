@@ -172,36 +172,56 @@ private Admin loginAdmin(Scanner scanner) {
 
     private void adminMenu(Scanner scanner, Admin admin, ReaderDB readerDB) {
         while (true) {
-            System.out.println("Welcome, " + admin.getAdminUser() + "!");
-            System.out.println("What option would you like?");
-            System.out.println("1. Modify profile");
-            System.out.println("2. Remove other users from the system");
-            System.out.println("3. Review the operations performed by other users");
-            System.out.println("4. Leave");
-            System.out.print("Please enter the number of your choice: ");
+           
+        System.out.println("Welcome, " + admin.getAdminUser() + "!");
+        System.out.println("What option would you like?");
+        System.out.println("1. Modify profile");
+        System.out.println("2. Remove other users from the system");
+        System.out.println("3. Review the operations performed by other users");
+        System.out.println("4. Leave");
+        System.out.print("Please enter the number of your choice: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
 
-            switch (choice) {
-                case 1:
-                    admin.modifyProfile();
-                    break;
-                case 2:
-                    // Implement logic to remove other users
-                    break;
-                case 3:
-                    // Implement logic to review operations
-                    break;
-                case 4:
-                    System.out.println("Goodbye, " + admin.getAdminUser() + "!");
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please enter a valid number.");
-            }
+        switch (choice) {
+            case 1:
+                admin.modifyProfile();
+                break;
+            case 2:
+                removeUsers();
+                break;
+            case 3:
+                reviewOperations();
+                break;
+            case 4:
+                System.out.println("Goodbye, " + admin.getAdminUser() + "!");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid choice. Please enter a valid number.");
         }
     }
+}
+
+// Implement the logic to remove other users
+private void removeUsers() {
+    System.out.print("Enter the username of the user to remove: ");
+    String usernameToRemove = scanner.nextLine();
+
+    // Implement logic to remove the user with the specified username
+    // You can use the WriterDB or any appropriate method to remove the user
+    // For example: writerDB.removeUserByUsername(usernameToRemove);
+    System.out.println("User " + usernameToRemove + " removed successfully.");
+}
+
+// Implement the logic to review operations
+private void reviewOperations() {
+    // Implement logic to display and review the operations performed by other users
+    // You can use the ReaderDB or any appropriate method to retrieve and display operations
+    // For example: readerDB.displayOperations();
+    System.out.println("Reviewing operations...");
+}
 
     private void calculateTaxes(Regular_User newUser) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
