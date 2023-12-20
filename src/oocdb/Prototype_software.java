@@ -5,6 +5,7 @@
 package oocdb;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 /**
@@ -20,7 +21,8 @@ public class Prototype_software {
         
         ReaderDB readerdb = new ReaderDB();
         System.out.println(User.getCurrentID());
-        readerdb.getAllData();
+        
+        ArrayList<User> allData = readerdb.getAllData();
         readerdb.getUserData(1);
         readerdb.getUserData(2);
         System.out.println(User.getCurrentID());
@@ -39,7 +41,7 @@ public class Prototype_software {
         double uscTax = taxCalculator.calculateUscTax(grossIncome, age);
         double prsiTax = taxCalculator.calculatePrsiTax(grossIncome);
 
-        // Print the results
+        // Print the results for each tax
         System.out.println("PAYE Tax: " + payeTax);
         System.out.println("USC Tax: " + uscTax);
         System.out.println("PRSI Tax: " + prsiTax);
