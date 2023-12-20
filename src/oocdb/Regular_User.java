@@ -5,7 +5,7 @@
 package oocdb;
 
 /**
- *
+ *NAO MEXI
  * @author Stefani Nunes
  */
 public class Regular_User extends User implements UserInterface{

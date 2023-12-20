@@ -4,6 +4,10 @@
  */
 package oocdb;
 
+import static hospitaladministration.Database.DB_BASE_URL;
+import static hospitaladministration.Database.PASSWORD;
+import static hospitaladministration.Database.USER;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -39,7 +43,7 @@ public class WriterDB {
             e.printStackTrace();
             return false;
         }
-        // Adding a list of users to the database (currently returns true, needs implementation)
+        // Adding a array list of users to the database (currently returns true, needs implementation)
        public boolean addAllUsers(List<User> userList) {
           // adding all users in the database liste 
            return true;

@@ -4,6 +4,11 @@
  */
 package oocdb;
 
+import static hospitaladministration.Database.DB_URL;
+import static hospitaladministration.Database.PASSWORD;
+import static hospitaladministration.Database.TABLE_NAME;
+import static hospitaladministration.Database.USER;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
