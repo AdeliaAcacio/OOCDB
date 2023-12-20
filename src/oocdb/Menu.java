@@ -13,14 +13,26 @@ import java.util.Scanner;
  */
 public class Menu {
   
-
+     
     Scanner scanner = new Scanner(System.in);
     ReaderDB readerDB = new ReaderDB();
     WriterDB writerDB = new WriterDB();
     User loggedInUser = null;
     TaxCalc taxCalculator = new TaxCalculator() {}; // Instantiate TaxCalculator
+    
+     public static void main(String[] args) throws SQLException {
+          // Instantiate Menu and call startMenu
+        Menu menu = new Menu();
+        try {
+            menu.startMenu();
+        } catch (SQLException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+
+     
        
-    public void startMenu() throws SQLException {
+    private void startMenu() throws SQLException {
         while (true) {
             System.out.println("Welcome to the Tax Calculator");
             System.out.println("You would like to:");
@@ -83,7 +95,7 @@ private Admin loginAdmin(Scanner scanner) {
         System.out.print("Enter admin password: ");
         String password = scanner.nextLine();
 
-        if (username.equalsIgnoreCase("admin") && password.equals("adminpass")) {
+        if (username.equalsIgnoreCase("cct") && password.equals("dublin")) {
             // Admin login
             Admin admin = new Admin(username, password, User.getCurrentID());
             System.out.println("Admin login successful!");

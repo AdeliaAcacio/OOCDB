@@ -10,8 +10,8 @@ package oocdb;
  */
 public class Admin  implements UserInterface{
     
-     private String adminUser = "CCT";
-     private String adminPassword = "Dublin";
+     private String adminUser = "cct";
+     private String adminPassword = "dublin";
    
     //CONSTRUCTOR 
 
