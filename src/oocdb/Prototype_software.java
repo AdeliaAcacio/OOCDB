@@ -56,7 +56,7 @@ public class Prototype_software {
     }
 
     private static int retrieveAgeFromDatabase() {
-        // 
+        
         return 0;
     }
 

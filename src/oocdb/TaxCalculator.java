@@ -86,21 +86,21 @@ package oocdb;
 
         // Method used to take grossIncome and retun the NET INCOME (value after deduction of PRSI tax)
     @Override
-        public double calculatePrsiTax(double grossIncome) {
-            double prsiTax = 0;
+    public double calculatePrsiTax(double grossIncome) {
+        double prsiTax = 0;
 
-            // If grossIncome is less than or equal to 40000
-            if (grossIncome <= 1872) {
-                //deduction of 40% of salary applied
-                prsiTax = grossIncome * 0.4;
-            } else {
-                //check if the amount of PRSI tax calculated is greater than 1873
-                // if yes, iT keeps the amount of 1873
-                prsiTax = (prsiTax > 1873) ? 1873 : prsiTax;
-           
-             }
+        // If grossIncome is less than or equal to 1872
+        if (grossIncome <= 1872) {
+        // Deduction of 40% of salary applied
+        prsiTax = grossIncome * 0.4;
+       } else {
+        // Check if the amount of PRSI tax calculated is greater than 1873
+        // If yes, it keeps the amount of 1873
+        prsiTax = (prsiTax > 1873) ? 1873 : prsiTax;
+    }
 
-             return prsiTax;
-        }
+    return prsiTax;
+}
+
  }
 

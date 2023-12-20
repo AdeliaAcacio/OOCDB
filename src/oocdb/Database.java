@@ -16,15 +16,13 @@ public interface Database {
     and the variables in Uppercase means it is a Final method
     */
     
-    String DB_BASE_URL = "jdbc:mysql://localhost";  
-    String USER = "ooc2023";
-    String PASSWORD = "ooc2023";
-    String DB_NAME = "users";
-    String TABLE_NAME = "user_details";
+    public static final String DB_BASE_URL = "jdbc:mysql://localhost";
+    public static final String USER = "ooc2023";
+    public static final String PASSWORD = "ooc2023";
+    public static final String DB_NAME = "users";
+    public static final String TABLE_NAME = "user_details";
     
-   
-    
-    String DB_URL = DB_BASE_URL + "/" + DB_NAME;
+    public static final String DB_URL = DB_BASE_URL + "/" + DB_NAME;
     
 }
     

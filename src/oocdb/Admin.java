@@ -8,27 +8,40 @@ package oocdb;
  *
  * @author Stefani Nunes
  */
-public class Admin extends User implements UserInterface{
+public class Admin  implements UserInterface{
     
-     // private String adminUser = "CCT";
-     // private String adminPassword = "Dublin";
+     private String adminUser = "CCT";
+     private String adminPassword = "Dublin";
    
-    CONSTRUCTOR *** WE NEED TO CREATE A NEW ADMIN? BECAUSE THIS CONSTRUCTOR WILL CREATE A NEW ADMIN, RIGHT?????****
-    
-    public Admin(String userName, String userPassword, int userID, int userAge, double grossIncome) {
-        super(userName, userPassword, userID, userAge, grossIncome);
+    //CONSTRUCTOR 
+
+    public Admin() {
     }
 
+    public void setAdminUser(String adminUser) {
+        this.adminUser = adminUser;
+    }
+
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
+    }
+
+    public String getAdminUser() {
+        return adminUser;
+    }
+
+    public String getAdminPassword() {
+        return adminPassword;
+    }
+
+
+   
     @Override
     public void modifyProfile(){
          //to modify their onw profile
         
     }
-    @Override
-    // if the used username and password matches the admin choise
-    public boolean login(String userUserName, String userPassword) {
-        return getUserName().equals(userUserName) && getUserPassword().equals(userPassword);
-    }
+   
     
   //METHODS DECLARATIONS  
     public void accessUsers(){

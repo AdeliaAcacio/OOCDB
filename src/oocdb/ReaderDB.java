@@ -6,9 +6,14 @@ package oocdb;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import static oocdb.Database.DB_BASE_URL;
+import static oocdb.Database.PASSWORD;
+import static oocdb.Database.USER;
 
 /**
  * This class retrieve user data, interact with 'Database' interface and connect
@@ -92,5 +97,45 @@ public class ReaderDB implements Database {
             e.printStackTrace();
         }
         return null;
+    }
+     // retrieving grossIncome and age from the database
+    public double retrieveGrossIncomeFromDatabase(int userId) {
+        double grossIncome = 0;
+
+        try (Connection connection = DriverManager.getConnection(DB_BASE_URL, USER, PASSWORD)) {
+            String sql = "SELECT grossIncome FROM users WHERE userID = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, userId);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        grossIncome = resultSet.getDouble("grossIncome");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle the exception according to your needs
+        }
+
+        return grossIncome;
+    }
+
+   public int retrieveAgeFromDatabase(int userId) {
+        int age = 0;
+
+        try (Connection connection = DriverManager.getConnection(DB_BASE_URL, USER, PASSWORD)) {
+            String sql = "SELECT userAge FROM users WHERE userID = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, userId);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        age = resultSet.getInt("userAge");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle the exception according to your needs
+        }
+
+        return age;
     }
 }
