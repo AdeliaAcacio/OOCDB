@@ -5,8 +5,8 @@
 package oocdb;
 
 /**
- * Tax types used to calulate income tax per person in Ireland  
- * PAYE: 'Pay As You Ern' deducted from employees  
+ * Tax types used to calculate income tax per person in Ireland  
+ * PAYE: 'Pay As You 'Earn' deducted from employees  
  * USC: Universal Social Charge
  * PRSI: Pay Related Social Insurance
  * 
