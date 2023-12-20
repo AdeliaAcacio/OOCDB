@@ -4,6 +4,7 @@
  */
 package oocdb;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -19,7 +20,7 @@ public class Menu {
     User loggedInUser = null;
     TaxCalc taxCalculator = new TaxCalculator() {}; // Instantiate TaxCalculator
 
-    public void startMenu() {
+    public void startMenu() throws SQLException {
         while (true) {
             System.out.println("Welcome to the Tax Calculator");
             System.out.println("You would like to:");
@@ -29,7 +30,7 @@ public class Menu {
             System.out.print("Please enter the number of your choice: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -72,7 +73,7 @@ public class Menu {
         return user;
     }
 
-    private void registerUser(Scanner scanner, WriterDB writerDB) {
+    private void registerUser(Scanner scanner, WriterDB writerDB) throws SQLException {
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
@@ -159,6 +160,10 @@ public class Menu {
                     System.out.println("Invalid choice. Please enter a valid number.");
             }
         }
+    }
+
+    private void calculateTaxes(Regular_User newUser) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 

@@ -138,4 +138,8 @@ public class ReaderDB implements Database {
 
         return age;
     }
+
+    User getUserByUsernameAndPassword(String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

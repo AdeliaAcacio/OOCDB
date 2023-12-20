@@ -4,6 +4,7 @@
  */
 package oocdb;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class Regular_User extends User implements UserInterface{
         super(userName, userPassword, userID, userAge, grossIncome);
     }
      
- private void registerUser(Scanner scanner, WriterDB writerDB) {
+ private void registerUser(Scanner scanner, WriterDB writerDB) throws SQLException {
     System.out.print("Enter username: ");
     String username = scanner.nextLine();
     System.out.print("Enter password: ");
