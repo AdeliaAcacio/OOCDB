@@ -9,8 +9,12 @@ package oocdb;
  * @author Stefani Nunes
  */
 public class Admin extends User implements UserInterface{
+    
+     // private String adminUser = "CCT";
+     // private String adminPassword = "Dublin";
    
-    //CONSTRUCTOR
+    CONSTRUCTOR *** WE NEED TO CREATE A NEW ADMIN? BECAUSE THIS CONSTRUCTOR WILL CREATE A NEW ADMIN, RIGHT?????****
+    
     public Admin(String userName, String userPassword, int userID, int userAge, double grossIncome) {
         super(userName, userPassword, userID, userAge, grossIncome);
     }
