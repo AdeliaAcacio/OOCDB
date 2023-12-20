@@ -34,15 +34,32 @@ public class Menu {
 
             switch (choice) {
                 case 1:
-                    loggedInUser = loginUser(scanner, readerDB);
-                    if (loggedInUser != null) {
-                        if (loggedInUser instanceof Admin) {
-                            adminMenu(scanner, (Admin) loggedInUser, readerDB);
-                        } else {
-                            regularUserMenu(scanner, (Regular_User) loggedInUser);
-                        }
+                    System.out.println("Please choose the type of user:");
+                    System.out.println("1. Admin");
+                    System.out.println("2. Regular User");
+                    System.out.print("Enter the number of your choice: ");
+                    int userTypeChoice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    switch (userTypeChoice) {
+                        case 1:
+                            loggedInUser = loginAdmin(scanner);
+                            if (loggedInUser != null) {
+                                adminMenu(scanner, (Admin) loggedInUser, readerDB);
+                            }
+                            break;
+                        case 2:
+                            loggedInUser = loginUser(scanner);
+                            if (loggedInUser != null) {
+                                regularUserMenu(scanner, (Regular_User) loggedInUser);
+                            }
+                            break;
+                        default:
+                            System.out.println("Invalid choice. Please enter 1 or 2.");
+                            break;
                     }
                     break;
+
                 case 2:
                     registerUser(scanner, writerDB);
                     break;
@@ -56,21 +73,44 @@ public class Menu {
         }
     }
 
-    private User loginUser(Scanner scanner, ReaderDB readerDB) {
+
+
+   // Inside the Menu class
+private Admin loginAdmin(Scanner scanner) {
+        System.out.print("Enter admin username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter admin password: ");
+        String password = scanner.nextLine();
+
+        if (username.equalsIgnoreCase("admin") && password.equals("adminpass")) {
+            // Admin login
+            Admin admin = new Admin(username, password, User.getCurrentID());
+            System.out.println("Admin login successful!");
+            return admin;
+        } else {
+            System.out.println("Invalid admin username or password. Please try again.");
+            return null;
+        }
+    }
+
+    private Regular_User loginUser(Scanner scanner) {
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
 
+        // Regular user login
         User user = readerDB.getUserByUsernameAndPassword(username, password);
 
         if (user == null) {
             System.out.println("Invalid username or password. Please try again.");
         } else {
             System.out.println("Login successful!");
+            System.out.println("Welcome, " + user.getUserName() + "!");
+            return (Regular_User) user;
         }
 
-        return user;
+        return null;
     }
 
     private void registerUser(Scanner scanner, WriterDB writerDB) throws SQLException {

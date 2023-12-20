@@ -15,7 +15,7 @@ public class Admin  implements UserInterface{
    
     //CONSTRUCTOR 
 
-    public Admin() {
+    public Admin(String username, String password, int currentID) {
     }
 
     public void setAdminUser(String adminUser) {

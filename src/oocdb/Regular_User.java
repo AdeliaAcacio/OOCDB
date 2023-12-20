@@ -4,9 +4,6 @@
  */
 package oocdb;
 
-import java.sql.SQLException;
-import java.util.Scanner;
-
 /**
  *
  * @author Stefani Nunes
@@ -17,35 +14,6 @@ public class Regular_User extends User implements UserInterface{
         super(userName, userPassword, userID, userAge, grossIncome);
     }
      
- private void registerUser(Scanner scanner, WriterDB writerDB) throws SQLException {
-    System.out.print("Enter username: ");
-    String username = scanner.nextLine();
-    System.out.print("Enter password: ");
-    String password = scanner.nextLine();
-
-    Regular_User newUser = new Regular_User(username, password, User.getCurrentID(), 0, 0.0);
-    boolean registrationSuccess = writerDB.addUser(newUser);
-
-    if (registrationSuccess) {
-        System.out.println("Registration successful!");
-
-        // Now, you can perform additional actions or calculations for the new user
-        // For example, calculate taxes for the new user
-        double grossIncome = newUser.getGrossIncome();
-        double payeTax = taxCalculator.calculatePayeTax(grossIncome);
-        double uscTax = taxCalculator.calculateUscTax(grossIncome, newUser.getUserAge());
-        double prsiTax = taxCalculator.calculatePrsiTax(grossIncome);
-
-        // Print the results for each tax
-        System.out.println("PAYE Tax: " + payeTax);
-        System.out.println("USC Tax: " + uscTax);
-        System.out.println("PRSI Tax: " + prsiTax);
-    } else {
-        System.out.println("Registration failed. Please try again.");
-    }
-}
-
-    
    @Override
     public void modifyProfile(){
          //// Implement modification for RegularUsers profile
